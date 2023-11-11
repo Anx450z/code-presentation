@@ -224,13 +224,13 @@ section.has-light-background, section.has-light-background h1, section.has-light
   font-family: var(--r-code-font);
   line-height: 1.2em;
   word-wrap: break-word;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .reveal code {
   font-family: var(--r-code-font);
   text-transform: none;
   tab-size: 2;
+  font-size: 15px;
 }
 
 .reveal pre code {

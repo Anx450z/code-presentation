@@ -4,23 +4,105 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>VS Code Extension</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/black.css">
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="plugin/highlight/dark.css">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>Hello</section>
+				<section data-markdown>
+					<textarea data-template>
+						<div>VsCode Extension</div>
+						<p style="color: red">Ruby on Rails</p>
+					</textarea>
+				</section>
+				<section data-auto-animate>
+					<div data-id="title-animation">extension.ts</div>
+					<pre data-id="code-animation">
+						<code data-line-numbers data-trim data-noescape>
+						import * as vscode from "vscode";
+
+						export async function activate(context: vscode.ExtensionContext) {
+							// your code goes here
+						}
+						export function deactivate() {}
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<div data-id="title-animation">extension.ts</div>
+					<pre data-id="code-animation">
+						<code data-trim data-noescape data-line-numbers="2,5-8">
+						import * as vscode from "vscode";
+						import { RubyMethodCodeLensProvider } from "./showRoute";
+
+						export async function activate(context: vscode.ExtensionContext) {
+							const codeLensRouteProvider = new RubyMethodCodeLensProvider();
+							context.subscriptions.push(
+								vscode.languages.registerCodeLensProvider("ruby", codeLensRouteProvider)
+							);
+						}
+
+						export function deactivate() {}
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<div data-id="title-animation-2">showRoute.ts</div>
+					<pre data-id="code-animation-2">
+						<code data-trim data-noescape data-line-numbers>
+							import * as vscode from "vscode";
+
+							export class RubyMethodCodeLensProvider implements vscode.CodeLensProvider {
+								
+							}				
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<div data-id="title-animation-2">showRoute.ts</div>
+					<pre data-id="code-animation-2">
+						<code data-trim data-noescape data-line-numbers="3-9">
+							import * as vscode from "vscode";
+
+							export class RubyMethodCodeLensProvider implements vscode.CodeLensProvider {
+									async provideCodeLenses(
+									document: vscode.TextDocument,
+									token: vscode.CancellationToken
+								): Promise<vscode.CodeLens[]> {
+										// main code
+								}
+							}
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<span data-id="title-animation-2">showRoute.ts</>
+					<pre data-id="code-animation-2">
+						<code data-trim data-noescape data-line-numbers="10-15">
+							import * as vscode from "vscode";
+
+							export class RubyMethodCodeLensProvider implements vscode.CodeLensProvider {
+									async provideCodeLenses(
+									document: vscode.TextDocument,
+									token: vscode.CancellationToken
+								): Promise<vscode.CodeLens[]> {
+										// main code
+								}
+								 private async getRoutes(
+									workspacePath: string | undefined,
+									controller: string
+								): Promise<Route[]> {
+									// get routes from helper function
+								}
+							}
+					</code></pre>
+				</section>
 			</div>
 		</div>
-
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
