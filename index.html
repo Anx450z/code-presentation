@@ -38,7 +38,7 @@
 				<section data-auto-animate>
 					<div data-id="title-animation">extension.ts</div>
 					<pre data-id="code-animation">
-						<code data-trim data-noescape data-line-numbers="2,5-8">
+						<code data-trim data-noescape data-line-numbers="2|5-8">
 						import * as vscode from "vscode";
 						import { RubyMethodCodeLensProvider } from "./showRoute";
 
@@ -80,7 +80,7 @@
 					</code></pre>
 				</section>
 				<section data-auto-animate>
-					<span data-id="title-animation-2">showRoute.ts</>
+					<span>showRoute.ts</span>
 					<pre data-id="code-animation-2">
 						<code data-trim data-noescape data-line-numbers="10-15">
 							import * as vscode from "vscode";
@@ -99,6 +99,50 @@
 									// get routes from helper function
 								}
 							}
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<span>showRoute.ts</span> <span>: main code</span>
+					<pre data-id="code-animation-2">
+						<code data-trim data-noescape data-ln-start-from="8" data-line-numbers="4,5|7,17|8-16|19,20">
+							// main code
+								const codeLenses: vscode.CodeLens[] = []
+								try {
+									const controller = 'stub code'; //finds controller name based on filename
+									const routes = await this.getRoutes(workspacePath, controller);
+
+									const promises = document.getText().split("\n").map(async (lineText, lineIndex) => {
+											const match = /def\s+(\w+)/.exec(lineText);
+											if (match) {
+												const action = match[1];
+												const route = findRouteForAction(routes, action, controller);
+												if (route) {
+													// setup codelens data
+												};
+													codeLenses.push(codeLens);
+												}
+											})
+										};
+									await Promise.all(promises);
+									return codeLenses
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<span>showRoute.ts</span> <span>: main code</span> <span>: codelens data</span>
+					<pre data-id="code-animation-2">
+						<code data-trim data-noescape data-ln-start-from="20" data-line-numbers="">
+							// setup codelens data
+							if (route) {
+								const codeLensRange = new vscode.Range(lineIndex,0,lineIndex,0);
+								const codeLens = new vscode.CodeLens(codeLensRange);
+
+								codeLens.command = {
+									title: `🌐 ${route.url} `,
+									command: "",
+									tooltip: `PREFIX → ${route.url} REQUEST`
+								};
+							}
+						  codeLenses.push(codeLens);
 					</code></pre>
 				</section>
 			</div>
