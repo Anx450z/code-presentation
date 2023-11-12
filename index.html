@@ -23,6 +23,61 @@
 						<p style="color: red">Ruby on Rails</p>
 					</textarea>
 				</section>
+				<section data-auto-animate="install-vs-code">
+					<span>Install CLI</span>
+					<pre data-id="cli-animation">
+						<code>
+							~ npm install -g yo generator-code
+							~ yo code
+						</code>
+					</pre>
+				</section>
+				<section>
+					<pre>
+						<code data-noescape>
+							# What type of extension do you want to create? New Extension (TypeScript)
+							# What's the name of your extension? HelloWorld
+							### Press <Enter> to choose default for all options below ###
+							
+							# What's the identifier of your extension? helloworld
+							# What's the description of your extension? LEAVE BLANK
+							# Initialize a git repository? Yes
+							# Bundle the source code with webpack? No
+							# Which package manager to use? npm
+							
+							# Do you want to open the new folder with Visual Studio Code? Open with `code`
+						</code>
+					</pr>
+				</section>
+				<section data-auto-animate="start-animation">
+					<pre data-id="initial-setup">
+						<code>
+							You will have a hello world template for vs code extension
+						</code>
+					</pre>
+				</section>
+				<section data-auto-animate="start-animation">
+					<pre data-id="initial-setup">
+						<code>
+							You will have a hello world template for vs code extension
+							navigate to src/extension.ts to get started
+						</code>
+					</pre>
+				</section>
+				<section data-auto-animate="start-animation">
+					<pre data-id="initial-setup">
+						<code>
+							You will have a hello world template for vs code extension
+							navigate to src/extension.ts to get started
+							run extension using F5 key
+						</code>
+					</pre>
+				</section>
+				<section>
+					<div>
+						Let's start!
+					</div>
+				</section>
 				<section data-auto-animate>
 					<div data-id="title-animation">extension.ts</div>
 					<pre data-id="code-animation">
@@ -130,7 +185,7 @@
 				<section data-auto-animate>
 					<span>showRoute.ts</span> <span>: main code</span> <span>: codelens data</span>
 					<pre data-id="code-animation-2">
-						<code data-trim data-noescape data-ln-start-from="20" data-line-numbers="">
+						<code data-trim data-noescape data-ln-start-from="20" data-line-numbers="1-2,11|3-4|6-10|12">
 							// setup codelens data
 							if (route) {
 								const codeLensRange = new vscode.Range(lineIndex,0,lineIndex,0);
