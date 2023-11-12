@@ -26,7 +26,7 @@
 				<section data-auto-animate="install-vs-code">
 					<span>Install CLI</span>
 					<pre data-id="cli-animation">
-						<code>
+						<code class="language-apache">
 							~ npm install -g yo generator-code
 							~ yo code
 						</code>
@@ -34,31 +34,31 @@
 				</section>
 				<section>
 					<pre>
-						<code data-noescape>
-							# What type of extension do you want to create? New Extension (TypeScript)
-							# What's the name of your extension? HelloWorld
-							### Press <Enter> to choose default for all options below ###
+						<code data-noescape class="language-yaml">
+							What type of extension do you want to create? New Extension (TypeScript)
+							What's the name of your extension? HelloWorld
+							Press `Enter` to choose default for all options below
 							
-							# What's the identifier of your extension? helloworld
-							# What's the description of your extension? LEAVE BLANK
-							# Initialize a git repository? Yes
-							# Bundle the source code with webpack? No
-							# Which package manager to use? npm
+							What's the identifier of your extension? helloworld
+							What's the description of your extension? LEAVE BLANK
+							Initialize a git repository? Yes
+							Bundle the source code with webpack? No
+							Which package manager to use? npm
 							
-							# Do you want to open the new folder with Visual Studio Code? Open with `code`
+							Do you want to open the new folder with Visual Studio Code? Open with `code`
 						</code>
 					</pr>
 				</section>
 				<section data-auto-animate="start-animation">
 					<pre data-id="initial-setup">
-						<code>
+						<code class="language-yaml">
 							You will have a hello world template for vs code extension
 						</code>
 					</pre>
 				</section>
 				<section data-auto-animate="start-animation">
 					<pre data-id="initial-setup">
-						<code>
+						<code class="language-yaml">
 							You will have a hello world template for vs code extension
 							navigate to src/extension.ts to get started
 						</code>
@@ -66,7 +66,7 @@
 				</section>
 				<section data-auto-animate="start-animation">
 					<pre data-id="initial-setup">
-						<code>
+						<code class="language-yaml">
 							You will have a hello world template for vs code extension
 							navigate to src/extension.ts to get started
 							run extension using F5 key
@@ -79,9 +79,43 @@
 					</div>
 				</section>
 				<section data-auto-animate>
+					<div>
+						Configure package.json
+					</div>
+					<pre data-id="pakage-json-animation">
+						<code data-trim data-noescape data-line-numbers="2-8|9-24">
+							{
+								"name": "app name",
+								"displayName": "display name on marketplace",
+								"version": "0.0",
+								"description": "Shows Rails routes above their controller actions",
+								"repository": "github repository",
+								"publisher": "name of publisher - same as azure account",
+								"icon": "icons/icon.png",
+								"engines": {
+									"vscode": "^1.76.0"
+								},
+								"categories": [
+									"Other"
+								],
+								"activationEvents": [
+									"onLanguage:ruby",
+								],
+								"main": "./out/extension.js",
+								"scripts": {
+								},
+								"devDependencies": {
+								},
+								"dependencies": {
+								}
+							}
+						</code>
+					</pre>
+				</section>
+				<section data-auto-animate>
 					<div data-id="title-animation">extension.ts</div>
 					<pre data-id="code-animation">
-						<code data-line-numbers data-trim data-noescape>
+						<code data-line-numbers data-trim data-noescape >
 						import * as vscode from "vscode";
 
 						export async function activate(context: vscode.ExtensionContext) {
@@ -121,15 +155,12 @@
 				<section data-auto-animate>
 					<div data-id="title-animation-2">showRoute.ts</div>
 					<pre data-id="code-animation-2">
-						<code data-trim data-noescape data-line-numbers="3-9">
+						<code data-trim data-noescape data-line-numbers="3-7">
 							import * as vscode from "vscode";
 
 							export class RubyMethodCodeLensProvider implements vscode.CodeLensProvider {
-									async provideCodeLenses(
-									document: vscode.TextDocument,
-									token: vscode.CancellationToken
-								): Promise<vscode.CodeLens[]> {
-										// main code
+									async provideCodeLenses(document,token): Promise {
+									// main code
 								}
 							}
 					</code></pre>
@@ -137,20 +168,14 @@
 				<section data-auto-animate>
 					<span>showRoute.ts</span>
 					<pre data-id="code-animation-2">
-						<code data-trim data-noescape data-line-numbers="10-15">
+						<code data-trim data-noescape data-line-numbers="7-9">
 							import * as vscode from "vscode";
 
 							export class RubyMethodCodeLensProvider implements vscode.CodeLensProvider {
-									async provideCodeLenses(
-									document: vscode.TextDocument,
-									token: vscode.CancellationToken
-								): Promise<vscode.CodeLens[]> {
+									async provideCodeLenses(document,token): Promise {
 										// main code
 								}
-								 private async getRoutes(
-									workspacePath: string | undefined,
-									controller: string
-								): Promise<Route[]> {
+								 private async getRoutes(workspacePath,controller): Promise {
 									// get routes from helper function
 								}
 							}
