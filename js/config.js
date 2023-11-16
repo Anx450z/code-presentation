@@ -175,7 +175,7 @@ export default {
 	// Default settings for our auto-animate transitions, can be
 	// overridden per-slide or per-element via data arguments
 	autoAnimateEasing: 'ease',
-	autoAnimateDuration: 1.0,
+	autoAnimateDuration: 2,
 	autoAnimateUnmatched: true,
 
 	// CSS properties that can be auto-animated. Position & scale
@@ -280,7 +280,7 @@ export default {
 	// - 'auto':    Show the scrollbar while scrolling, hide while idle
 	// - true:      Always show the scrollbar
 	// - false:     Never show the scrollbar
-	scrollProgress: 'auto',
+	scrollProgress: 'false',
 
 	// Automatically activate the scroll view when we the viewport falls
 	// below the given width.
